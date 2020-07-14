@@ -7,10 +7,10 @@ public class DetailException {
 	private String messageException;
 	private String detailsExcption;
 
-	public DetailException(Date dateException, String messageException, String detailsExcption) {
+	public DetailException(Date dateException, String messageException, String detailsException) {
 		this.dateException = dateException;
 		this.messageException = messageException;
-		this.detailsExcption = detailsExcption;
+		this.detailsExcption = detailsException;
 	}
 
 	public Date getDateException() {

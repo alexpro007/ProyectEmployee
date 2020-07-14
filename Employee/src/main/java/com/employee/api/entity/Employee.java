@@ -31,9 +31,20 @@ public class Employee {
 	private Date dateOfEmployment;
 	@Column(name = "status", nullable = false, length = 8)
 	private String status;
-
-	//public void Employe() {}
 	
+	public Employee() {}
+	
+	public Employee(String firstName, String middleInitial, String lastName, Date dateOfBirth, Date dateOfEmployment,
+			String status) {
+		super();
+		this.firstName = firstName;
+		this.middleInitial = middleInitial;
+		this.lastName = lastName;
+		this.dateOfBirth = dateOfBirth;
+		this.dateOfEmployment = dateOfEmployment;
+		this.status = status;
+	}
+
 	public Integer getId() {
 		return id;
 	}
@@ -89,4 +100,5 @@ public class Employee {
 	public void setStatus(String status) {
 		this.status = status;
 	}
+	
 }
