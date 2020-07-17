@@ -21,5 +21,4 @@ public interface EmployeeDao extends JpaRepository<Employee, Integer> {
 	@Query(value="UPDATE EMPLOYEE SET STATUS=?2 WHERE ID=?1" ,nativeQuery=true)
 	Employee deleteByIdAndStatus(Integer id, String status);
 
-
 }

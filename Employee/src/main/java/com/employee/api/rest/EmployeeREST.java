@@ -54,7 +54,9 @@ public class EmployeeREST {
 				updateEmployee.setFirstName(employee.getFirstName());
 				updateEmployee.setMiddleInitial(employee.getMiddleInitial());
 				updateEmployee.setLastName(employee.getLastName());
+				System.out.println(employee.getDateOfBirth());
 				updateEmployee.setDateOfBirth(employee.getDateOfBirth());
+				System.out.println(employee.getDateOfEmployment());
 				updateEmployee.setDateOfEmployment(employee.getDateOfEmployment());
 				updateEmployee.setStatus(employee.getStatus());
 				employeeDao.save(updateEmployee);

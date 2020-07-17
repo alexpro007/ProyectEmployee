@@ -19,10 +19,10 @@ public class CSVService {
 		System.out.println(file.toString());
 		try {
 			List<Employee> employee = CSVHelper.csvToEmployee(file.getInputStream());
-			System.out.println("Guardar registros en ");
+			//System.out.println("Guardar registros en ");
 			employeeDao.saveAll(employee);
 		} catch (IOException e) {
-			System.out.println("Error al Cargar la Info ");
+			//System.out.println("Error al Cargar la Info ");
 			throw new RuntimeException("fail to store csv data: " + e.getMessage());
 		}
 	}

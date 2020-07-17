@@ -17,15 +17,15 @@ import com.employee.api.entity.Employee;
 
 public class CSVHelper {
 	public static String TYPE = "text/csv";
-	static String[] HEADERs = { "firstName", "middleInitial", "lastName", "dateOfBirth","dateOfEmployment" };
+	//static String[] HEADERs = { "firstName", "middleInitial", "lastName", "dateOfBirth","dateOfEmployment" };
 
 	public static boolean hasCSVFormat(MultipartFile file) {
 
 		if (!TYPE.equals(file.getContentType())) {
-			System.out.println("Se valida archivo hasCSVFormat Valor False");
+			//System.out.println("Se valida archivo hasCSVFormat Valor False");
 			return false;
 		}
-		System.out.println("Se valida archivo hasCSVFormat Valor True");
+		//System.out.println("Se valida archivo hasCSVFormat Valor True");
 		return true;
 	}
 
@@ -50,7 +50,7 @@ public class CSVHelper {
 			}
 			return listEmployee;
 		} catch (IOException e) {
-			System.out.println("problema al cargar la info");
+			//System.out.println("problema al cargar la info");
 			throw new RuntimeException("fail to parse CSV file: " + e.getMessage());
 		}
 	}

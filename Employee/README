@@ -1,0 +1,71 @@
+-----------------------------------------------------
+------		Alejandro Cerecedo Escorza		---------
+-----------------------------------------------------
+
+Verion: 1.0.0.3
+->Se modifica clase entidad para implementacion de constructor, para la carga de CSV
+->Se agrega la posibilidad de carga de Archivos CSV
+
+Gestión y control de empleados
+
+Java Versión:1.8.0_224
+Version de Tomcat 9.0 (Funcional con versión de SPRING_BOOT)
+Dependencias: Spring Boot, JPA, Spring Boot Security.
+
+Intalación:
+1. Tener instalado un servidor de aplicaciones Apache Tomcat Versión 9 en adelante.
+2. Tener instalada la version 1.8 del JDK de Java para su correcto funcionamiento.
+3. Configuración adecuada de los parametros de conexión a base de datos postgres a través de la configuración de ODBC dentro de archivos application.properties
+4. Agregar el aplicativo a desplegar dentro de la ruta del servidor de aplicaciones:
+{PATH Verisón Tomcat}/webapps/Employee.war
+
+
+Componentes APIS:
+
+Se obtienen todos los empleados registrados en la base de datos
+[GET] http://localhost:8082/Employee/getAllEmployees
+
+Se obtiene la información del empleado indicado en la petición:
+[GET] http://localhost:8082/Employee/getEmployee/{idEmpleado}
+
+Permite realizar la inserción de un nuevo registro (Los campos ID y Status no son necesarios el estatus de alta siempre sera "ACTIVE"):
+[POST] http://localhost:8082/Employee/addEmployee
+
+{
+    "firstName":"Alejandro",
+    "middleInitial":"C",
+    "lastName":"Escorza",
+    "dateOfBirth":"1989-12-21",
+    "dateOfEmployment":"2020-02-20",
+}
+
+Se permite realizar la actualización del empleado, 
+[PUT] http://localhost:8082/Employee/updateEmployee
+
+{
+    "id":"19",
+    "firstName":"Alejandro",
+    "middleInitial":"C",
+    "lastName":"Escorza",
+    "dateOfBirth":"1989-12-21",
+    "dateOfEmployment":"2020-02-20",
+    "status":"ACTIVE"
+}
+
+Eliminación de empleados por el id de empleado
+http://localhost:8082/Employee/auth/deleteEmployee/{idEmpleado}
+
+Carga de empleados, mediante archivo CSV:
+http://localhost:8082/Employee/csv/uploadEmployees
+
+Observaciones generales del componente:
+>No se tienen cachados todos las validaciones de campos para los diferentes parámetros
+>El servicio esta configurado para poder conectarse a una base de datos Postgres
+>Se realiza el manejo de algunas excepciones y se agrego paquete para agregar más segun sea necesarias.
+
+
+
+
+
+
+
