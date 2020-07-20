@@ -16,20 +16,20 @@ Intalación:
 1. Tener instalado un servidor de aplicaciones Apache Tomcat Versión 9 en adelante.
 2. Tener instalada la version 1.8 del JDK de Java para su correcto funcionamiento.
 3. Configuración adecuada de los parametros de conexión a base de datos postgres a través de la configuración de ODBC dentro de archivos application.properties
-4. Agregar el aplicativo a desplegar dentro de la ruta del servidor de aplicaciones:
-{PATH Verisón Tomcat}/webapps/Employee.war
-
+4. Agregar el aplicativo a desplegar dentro de la ruta del servidor de aplicaciones Tomcat 9:
+{PATH_Verisón_Tomcat}/webapps/Employee.war
+Oh ini
 
 Componentes APIS:
 
 Se obtienen todos los empleados registrados en la base de datos
-[GET] http://localhost:8082/Employee/getAllEmployees
+[GET] http://localhost:{puerto}/Employee/getAllEmployees
 
 Se obtiene la información del empleado indicado en la petición:
-[GET] http://localhost:8082/Employee/getEmployee/{idEmpleado}
+[GET] http://localhost:{puerto}/Employee/getEmployee/{idEmpleado}
 
 Permite realizar la inserción de un nuevo registro (Los campos ID y Status no son necesarios el estatus de alta siempre sera "ACTIVE"):
-[POST] http://localhost:8082/Employee/addEmployee
+[POST] http://localhost:{puerto}/Employee/addEmployee
 
 {
     "firstName":"Alejandro",
@@ -40,7 +40,7 @@ Permite realizar la inserción de un nuevo registro (Los campos ID y Status no s
 }
 
 Se permite realizar la actualización del empleado, 
-[PUT] http://localhost:8082/Employee/updateEmployee
+[PUT] http://localhost:{puerto}/Employee/updateEmployee
 
 {
     "id":"19",
@@ -53,15 +53,19 @@ Se permite realizar la actualización del empleado,
 }
 
 Eliminación de empleados por el id de empleado
-http://localhost:8082/Employee/auth/deleteEmployee/{idEmpleado}
+http://localhost:{puerto}/Employee/auth/deleteEmployee/{idEmpleado}
 
 Carga de empleados, mediante archivo CSV:
-http://localhost:8082/Employee/csv/uploadEmployees
+http://localhost:{puerto}/Employee/csv/uploadEmployees
 
 Observaciones generales del componente:
 >No se tienen cachados todos las validaciones de campos para los diferentes parámetros
 >El servicio esta configurado para poder conectarse a una base de datos Postgres
 >Se realiza el manejo de algunas excepciones y se agrego paquete para agregar más segun sea necesarias.
+
+Para mas información de las APIS ver la siguiente documentación:
+-> http://localhost:{Puerto}/Employee/v2/api-docs
+-> http://localhost:{Puerto}/Employee/swagger-ui.html
 
 
 
